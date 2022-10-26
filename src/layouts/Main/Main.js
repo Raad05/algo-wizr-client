@@ -8,9 +8,11 @@ const Main = () => {
     return (
         <div className='main'>
             <Header></Header>
-            <div className='grid grid-cols-12'>
-                <div className="col-span-9"><Outlet></Outlet></div>
-                <div className="col-span-3"><RightSide></RightSide></div>
+            <div className='container mx-auto'>
+                <div className='grid grid-cols-12'>
+                    <div className="col-span-9"><Outlet></Outlet></div>
+                    <div className="col-span-3"><RightSide></RightSide></div>
+                </div>
             </div>
             <Footer></Footer>
         </div>
