@@ -6,7 +6,7 @@ import RightSide from '../../Components/Shared/RightSide/RightSide';
 
 const Main = () => {
     return (
-        <div className='main'>
+        <div className='main bg-gray-200'>
             <Header></Header>
             <div className='container mx-auto'>
                 <div className='grid grid-cols-12'>

@@ -8,7 +8,7 @@ const Header = () => {
 
     return (
         <div className='header px-40 py-5'>
-            <div className="navbar bg-base-100">
+            <div className="navbar bg-gray-200">
                 <div className="flex-1">
                     <Link to='/home'><button className="btn btn-ghost normal-case text-4xl">
                         <img className='w-10 rounded mr-3' src={logo} alt="Logo" />AlgoWizR
