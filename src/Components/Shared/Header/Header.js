@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import logo from '../../../assets/Images/logo.png';
 
 const Header = () => {
@@ -11,7 +12,7 @@ const Header = () => {
                     </button>
                 </div>
                 <div className='btn-navigation'>
-                    <button className="btn btn-outline btn-sm mx-2 btn-accent">COURSES</button>
+                    <Link to='/home'><button className="btn btn-outline btn-sm mx-2 btn-accent">COURSES</button></Link>
                     <button className="btn btn-outline btn-sm mx-2 btn-accent">FAQ</button>
                     <button className="btn btn-outline btn-sm mx-2  btn-accent">BLOGS</button>
                 </div>
