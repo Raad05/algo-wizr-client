@@ -1,8 +1,9 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../../contexts/UserContext';
+import { Link } from 'react-router-dom';
 
 const SignUp = () => {
-    const { createUser } = useContext(AuthContext);
+    const { createUser, googleLogin, githubLogin } = useContext(AuthContext);
 
     const handleSignUp = (event) => {
         event.preventDefault();
@@ -20,6 +21,24 @@ const SignUp = () => {
             .catch(error => {
                 console.error(error);
             })
+
+        googleLogin()
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+            })
+            .catch(error => {
+                console.error(error);
+            })
+
+        githubLogin()
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+            })
+            .catch(error => {
+                console.error(error);
+            })
     }
 
     return (
@@ -30,7 +49,7 @@ const SignUp = () => {
                         <h1 className="text-5xl font-bold text-center">Sign Up Now!</h1>
                         <p className="py-6">Sign up for free and get started with your programming journey.</p>
                     </div>
-                    <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                    <div className="card flex-shrink-0 w-full max-w-sm shadow-lg bg-base-100">
                         <form onSubmit={handleSignUp}>
                             <div className="card-body">
                                 <div className="form-control">
@@ -50,8 +69,14 @@ const SignUp = () => {
                                         <span className="label-text">Password</span>
                                     </label>
                                     <input type="password" name='password' placeholder="Password" className="input input-bordered" required />
+                                </div>
+                                <div className="form-control">
                                     <label className="label">
-                                        <button className="label-text-alt link link-hover">Already have an account?</button>
+                                        <span className="label-text">Confirm Password</span>
+                                    </label>
+                                    <input type="password" name='password' placeholder="Password" className="input input-bordered" required />
+                                    <label className="label">
+                                        <Link to='/login'><button className="label-text-alt link link-hover">Already have an account?</button></Link>
                                     </label>
                                 </div>
                                 <div className="form-control mt-6">

@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../../assets/Images/logo.png';
+import { AuthContext } from '../../../contexts/UserContext';
 
 const Header = () => {
+    const { user, logOut } = useContext(AuthContext);
+
     return (
         <div className='header px-40 py-5'>
             <div className="navbar bg-base-100">
@@ -28,10 +31,15 @@ const Header = () => {
                             <div className="form-control">
                                 <label className="label cursor-pointer">
                                     <span className="label-text">Dark Mode</span>
-                                    <input type="checkbox" className="toggle toggle-accent" checked />
+                                    <input type="checkbox" className="toggle toggle-accent" defaultChecked />
                                 </label>
                             </div>
-                            <li><button>Logout</button></li>
+                            {
+                                user?.uid &&
+                                <>
+                                    <li><button onClick={logOut}>Logout</button></li>
+                                </>
+                            }
                         </ul>
                     </div>
                 </div>
