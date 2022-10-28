@@ -10,9 +10,9 @@ const Header = () => {
         <div className='header px-40 py-5'>
             <div className="navbar bg-base-100">
                 <div className="flex-1">
-                    <button className="btn btn-ghost normal-case text-4xl">
+                    <Link to='/home'><button className="btn btn-ghost normal-case text-4xl">
                         <img className='w-10 rounded mr-3' src={logo} alt="Logo" />AlgoWizR
-                    </button>
+                    </button></Link>
                 </div>
                 <div className='btn-navigation'>
                     <Link to='/home'><button className="btn btn-outline btn-sm mx-2 btn-accent">COURSES</button></Link>
