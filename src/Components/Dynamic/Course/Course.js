@@ -11,7 +11,7 @@ const CourseInfo = ({ course }) => {
                 <div className="card-body">
                     <h2 className="title text-center font-bold text-2xl mb-5">{name}</h2>
                     <div className="card-actions justify-center">
-                        <Link to={`courses/${_id}`}><button className="btn btn-success btn-wide">DETAILS</button></Link>
+                        <Link to={`/courses/${_id}`}><button className="btn btn-success btn-wide">DETAILS</button></Link>
                     </div>
                 </div>
             </div>
