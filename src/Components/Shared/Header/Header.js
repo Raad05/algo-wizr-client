@@ -23,22 +23,30 @@ const Header = () => {
                     <div className="dropdown dropdown-end">
                         <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                             <div className="w-10 rounded-full">
-                                <img src="https://placeimg.com/80/80/people" alt="User" />
+                                {
+                                    user?.uid ?
+                                        <img src={user.photoURL} alt="User" />
+                                        :
+                                        <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png" alt="User" />
+                                }
                             </div>
                         </label>
                         <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-                            <li><button>Profile</button></li>
+                            {
+                                user?.uid &&
+                                <li className='font-bold'><button>{user.displayName}</button></li>
+                            }
                             <div className="form-control">
                                 <label className="label cursor-pointer">
-                                    <span className="label-text">Dark Mode</span>
+                                    <span className="label-text px-3">Dark Mode</span>
                                     <input data-toggle-theme="dark,light" data-act-class="ACTIVECLASS" type="checkbox" className="toggle toggle-accent" />
                                 </label>
                             </div>
                             {
-                                user?.uid &&
-                                <>
+                                user?.uid ?
                                     <li><button onClick={logOut}>Logout</button></li>
-                                </>
+                                    :
+                                    <li><Link to='/login'><button>Login</button></Link></li>
                             }
                         </ul>
                     </div>
