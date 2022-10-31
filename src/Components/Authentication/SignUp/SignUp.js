@@ -1,9 +1,13 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../../contexts/UserContext';
 import { Link } from 'react-router-dom';
+import { getAuth, updateProfile } from 'firebase/auth';
+import app from '../../../firebase/firebase.config';
+
+const auth = getAuth(app);
 
 const SignUp = () => {
-    const { createUser, googleLogin, githubLogin } = useContext(AuthContext);
+    const { createUser } = useContext(AuthContext);
 
     const handleSignUp = (event) => {
         event.preventDefault();
@@ -22,30 +26,25 @@ const SignUp = () => {
         createUser(email, password)
             .then(result => {
                 const user = result.user;
-                console.log(user);
                 form.reset();
-            })
-            .catch(error => {
-                console.error(error);
-            })
-
-        googleLogin()
-            .then(result => {
-                const user = result.user;
+                updateUserName();
                 console.log(user);
             })
             .catch(error => {
                 console.error(error);
             })
 
-        githubLogin()
-            .then(result => {
-                const user = result.user;
-                console.log(user);
+        const updateUserName = () => {
+            updateProfile(auth.currentUser, {
+                displayName: name
             })
-            .catch(error => {
-                console.error(error);
-            })
+                .then(() => {
+                    console.log('Username updated');
+                })
+                .catch(error => {
+                    console.error(error);
+                })
+        }
     }
 
     return (
