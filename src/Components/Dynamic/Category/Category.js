@@ -7,7 +7,7 @@ const Category = () => {
     return (
         <div className='category mr-20'>
             <h1 className='text-xl my-5 font-bold'>Total Courses: {categoryCourses.length}</h1>
-            <div className='grid grid-cols-3 gap-20'>
+            <div className='grid grid-cols-3 gap-x-10'>
                 {
                     categoryCourses.map(course => <CourseInfo
                         key={course._id}

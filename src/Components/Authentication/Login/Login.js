@@ -3,9 +3,15 @@ import { useContext } from 'react';
 import { AuthContext } from '../../../contexts/UserContext';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { getAuth, GithubAuthProvider, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import app from '../../../firebase/firebase.config';
+
+const auth = getAuth(app);
 
 const Login = () => {
-    const { login, googleLogin, githubLogin } = useContext(AuthContext);
+    const { login } = useContext(AuthContext);
+    const googleProvider = new GoogleAuthProvider();
+    const githubProvider = new GithubAuthProvider();
 
     const handleLogin = (event) => {
         event.preventDefault();
@@ -18,12 +24,15 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                form.reset();
             })
             .catch(error => {
                 console.error(error);
             })
+    }
 
-        googleLogin()
+    const googleLogin = () => {
+        signInWithPopup(auth, googleProvider)
             .then(result => {
                 const user = result.user;
                 console.log(user);
@@ -31,8 +40,10 @@ const Login = () => {
             .catch(error => {
                 console.error(error);
             })
+    }
 
-        githubLogin()
+    const githubLogin = () => {
+        signInWithPopup(auth, githubProvider)
             .then(result => {
                 const user = result.user;
                 console.log(user);

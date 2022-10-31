@@ -11,12 +11,19 @@ const SignUp = () => {
         const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
+        const confirmPassowrd = form.confirm.value;
         console.log(name, email, password);
+
+        if (confirmPassowrd !== password) {
+            console.log('Password does not match!');
+            return;
+        }
 
         createUser(email, password)
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                form.reset();
             })
             .catch(error => {
                 console.error(error);
@@ -74,7 +81,7 @@ const SignUp = () => {
                                     <label className="label">
                                         <span className="label-text">Confirm Password</span>
                                     </label>
-                                    <input type="password" name='password' placeholder="Password" className="input input-bordered" required />
+                                    <input type="password" name='confirm' placeholder="Confirm Password" className="input input-bordered" required />
                                     <label className="label">
                                         <Link to='/login'><button className="label-text-alt link link-hover">Already have an account?</button></Link>
                                     </label>

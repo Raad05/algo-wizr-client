@@ -8,7 +8,7 @@ const Header = () => {
 
     return (
         <div className='header px-40 py-5'>
-            <div className="navbar bg-gray-200">
+            <div className="navbar">
                 <div className="flex-1">
                     <Link to='/home'><button className="btn btn-ghost normal-case text-4xl">
                         <img className='w-10 rounded mr-3' src={logo} alt="Logo" />AlgoWizR
@@ -31,7 +31,7 @@ const Header = () => {
                             <div className="form-control">
                                 <label className="label cursor-pointer">
                                     <span className="label-text">Dark Mode</span>
-                                    <input type="checkbox" className="toggle toggle-accent" defaultChecked />
+                                    <input data-toggle-theme="dark,light" data-act-class="ACTIVECLASS" type="checkbox" className="toggle toggle-accent" />
                                 </label>
                             </div>
                             {

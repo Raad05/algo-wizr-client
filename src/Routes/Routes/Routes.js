@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Login from "../../Components/Authentication/Login/Login";
 import SignUp from "../../Components/Authentication/SignUp/SignUp";
 import Category from "../../Components/Dynamic/Category/Category";
+import CourseDetails from "../../Components/Dynamic/CourseDetails/CourseDetails";
 import Main from "../../layouts/Main/Main";
 
 export const router = createBrowserRouter([
@@ -24,10 +25,6 @@ export const router = createBrowserRouter([
                 loader: ({ params }) => fetch(`http://localhost:5000/category/${params.id}`),
                 element: <Category></Category>
             },
-            {
-                path: '/courses/:id',
-                loader: ({ params }) => fetch(`http://localhost:5000/courses/${params.id}`)
-            }
         ]
     },
     {
@@ -37,5 +34,10 @@ export const router = createBrowserRouter([
     {
         path: '/signup',
         element: <SignUp></SignUp>
+    },
+    {
+        path: '/courses/:id',
+        loader: ({ params }) => fetch(`http://localhost:5000/courses/${params.id}`),
+        element: <CourseDetails></CourseDetails>
     }
 ]);
