@@ -4,6 +4,7 @@ import SignUp from "../../Components/Authentication/SignUp/SignUp";
 import Category from "../../Components/Dynamic/Category/Category";
 import CourseDetails from "../../Components/Dynamic/CourseDetails/CourseDetails";
 import Main from "../../layouts/Main/Main";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 export const router = createBrowserRouter([
     {
@@ -38,6 +39,6 @@ export const router = createBrowserRouter([
     {
         path: '/courses/:id',
         loader: ({ params }) => fetch(`http://localhost:5000/courses/${params.id}`),
-        element: <CourseDetails></CourseDetails>
+        element: <PrivateRoute><CourseDetails></CourseDetails></PrivateRoute>
     }
 ]);
