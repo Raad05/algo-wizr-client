@@ -1,11 +1,13 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
+import Header from '../../Shared/Header/Header';
 
 const CourseDetails = () => {
     const courseDetails = useLoaderData();
 
     return (
         <div className='course-details'>
+            <Header></Header>
             <div className="hero min-h-screen bg-base-200">
                 <div className="hero-content flex-col">
                     <img src={courseDetails.thumbnail} className="max-w-sm rounded-lg shadow-2xl" alt='course-img' />

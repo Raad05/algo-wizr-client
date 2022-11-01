@@ -15,7 +15,7 @@ const Header = () => {
                     </button></Link>
                 </div>
                 <div className='btn-navigation'>
-                    <Link to='/home'><button className="btn btn-outline btn-sm mx-2 btn-accent">COURSES</button></Link>
+                    <Link to='/courses'><button className="btn btn-outline btn-sm mx-2 btn-accent">COURSES</button></Link>
                     <button className="btn btn-outline btn-sm mx-2 btn-accent">FAQ</button>
                     <button className="btn btn-outline btn-sm mx-2  btn-accent">BLOGS</button>
                 </div>
@@ -24,7 +24,7 @@ const Header = () => {
                         <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                             <div className="w-10 rounded-full">
                                 {
-                                    user?.uid ?
+                                    user?.photoURL ?
                                         <img src={user.photoURL} alt="User" />
                                         :
                                         <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png" alt="User" />

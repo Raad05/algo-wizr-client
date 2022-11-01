@@ -2,15 +2,19 @@ import React from 'react';
 import { useContext } from 'react';
 import { AuthContext } from '../../../contexts/UserContext';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { getAuth, GithubAuthProvider, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import app from '../../../firebase/firebase.config';
+import Header from '../../Shared/Header/Header';
 
 const auth = getAuth(app);
 
 const Login = () => {
-    const { login } = useContext(AuthContext);
+    const { login, setLoading } = useContext(AuthContext);
     const navigate = useNavigate();
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || '/';
 
     const googleProvider = new GoogleAuthProvider();
     const githubProvider = new GithubAuthProvider();
@@ -27,7 +31,7 @@ const Login = () => {
                 const user = result.user;
                 console.log(user);
                 form.reset();
-                navigate('/');
+                navigate(from, { replace: true });
             })
             .catch(error => {
                 console.error(error);
@@ -35,11 +39,12 @@ const Login = () => {
     }
 
     const googleLogin = () => {
+        setLoading(true);
         signInWithPopup(auth, googleProvider)
             .then(result => {
                 const user = result.user;
                 console.log(user);
-                navigate('/');
+                navigate(from, { replace: true });
             })
             .catch(error => {
                 console.error(error);
@@ -47,11 +52,12 @@ const Login = () => {
     }
 
     const githubLogin = () => {
+        setLoading(true);
         signInWithPopup(auth, githubProvider)
             .then(result => {
                 const user = result.user;
                 console.log(user);
-                navigate('/');
+                navigate(from, { replace: true });
             })
             .catch(error => {
                 console.error(error);
@@ -60,6 +66,7 @@ const Login = () => {
 
     return (
         <div className='login-form'>
+            <Header></Header>
             <div className="hero min-h-screen bg-base-200">
                 <div className="hero-content flex-col">
                     <div className="text-center">

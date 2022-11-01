@@ -1,13 +1,18 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../../contexts/UserContext';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { getAuth, updateProfile } from 'firebase/auth';
 import app from '../../../firebase/firebase.config';
+import Header from '../../Shared/Header/Header';
 
 const auth = getAuth(app);
 
 const SignUp = () => {
     const { createUser } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || '/';
 
     const handleSignUp = (event) => {
         event.preventDefault();
@@ -28,6 +33,7 @@ const SignUp = () => {
                 const user = result.user;
                 form.reset();
                 updateUserName();
+                navigate(from, { replace: true });
                 console.log(user);
             })
             .catch(error => {
@@ -49,6 +55,7 @@ const SignUp = () => {
 
     return (
         <div className='signup-form'>
+            <Header></Header>
             <div className="hero min-h-screen bg-base-200">
                 <div className="hero-content flex-col">
                     <div className="text-center">
@@ -86,7 +93,7 @@ const SignUp = () => {
                                     </label>
                                 </div>
                                 <div className="form-control mt-6">
-                                    <button className="btn btn-accent">Login</button>
+                                    <button className="btn btn-accent">SIGN UP</button>
                                 </div>
                             </div>
                         </form>
