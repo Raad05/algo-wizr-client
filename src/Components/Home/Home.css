@@ -1,0 +1,5 @@
+.home {
+    background: url('/src/assets/Images/bg.jpg');
+    width: 100%;
+    background-size: cover;
+}

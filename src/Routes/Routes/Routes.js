@@ -1,8 +1,12 @@
 import { createBrowserRouter } from "react-router-dom";
 import Login from "../../Components/Authentication/Login/Login";
 import SignUp from "../../Components/Authentication/SignUp/SignUp";
+import Congratulations from "../../Components/Congratulations/Congratulations";
 import Category from "../../Components/Dynamic/Category/Category";
 import CourseDetails from "../../Components/Dynamic/CourseDetails/CourseDetails";
+import ErrorPage from "../../Components/ErrorPage/ErrorPage";
+import GetPremium from "../../Components/GetPremium/GetPremium";
+import Home from "../../Components/Home/Home";
 import Main from "../../layouts/Main/Main";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
@@ -34,6 +38,10 @@ export const router = createBrowserRouter([
         ]
     },
     {
+        path: '/homepage',
+        element: <Home></Home>
+    },
+    {
         path: '/login',
         element: <Login></Login>
     },
@@ -45,5 +53,18 @@ export const router = createBrowserRouter([
         path: '/courses/:id',
         loader: ({ params }) => fetch(`http://localhost:5000/courses/${params.id}`),
         element: <PrivateRoute><CourseDetails></CourseDetails></PrivateRoute>
+    },
+    {
+        path: '/checkout/:id',
+        loader: ({ params }) => fetch(`http://localhost:5000/courses/${params.id}`),
+        element: <PrivateRoute><GetPremium></GetPremium></PrivateRoute>
+    },
+    {
+        path: '/purchase-complete',
+        element: <Congratulations></Congratulations>
+    },
+    {
+        path: '*',
+        element: <ErrorPage></ErrorPage>
     }
 ]);
