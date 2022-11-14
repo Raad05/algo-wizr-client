@@ -4,7 +4,7 @@ import Header from '../Shared/Header/Header';
 
 const GetPremium = () => {
     const course = useLoaderData();
-    const { thumbnail, name, price, details } = course;
+    const { thumbnail, name, price } = course;
 
     return (
         <div className='get-premium'>

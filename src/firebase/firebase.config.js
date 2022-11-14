@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyAxds9mhgiUgppFZwMEPE1Ze1O6xvW34cE",
-    authDomain: "algo-wizr-client.firebaseapp.com",
-    projectId: "algo-wizr-client",
-    storageBucket: "algo-wizr-client.appspot.com",
-    messagingSenderId: "403750323032",
-    appId: "1:403750323032:web:f6b028461a89588c191b2d"
+    apiKey: process.env.REACT_API_apiKey,
+    authDomain: process.env.REACT_API_authDomain,
+    projectId: process.env.REACT_API_projectId,
+    storageBucket: process.env.REACT_API_storageBucket,
+    messagingSenderId: process.env.REACT_API_messagingSenderId,
+    appId: process.env.REACT_API_appId
 };
 
 // Initialize Firebase
