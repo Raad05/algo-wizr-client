@@ -17,7 +17,7 @@ const Header = () => {
                 <div className='btn-navigation'>
                     <Link to='/courses'><button className="btn btn-outline btn-sm mx-2 btn-accent">COURSES</button></Link>
                     <button className="btn btn-outline btn-sm mx-2 btn-accent">FAQ</button>
-                    <button className="btn btn-outline btn-sm mx-2  btn-accent">BLOGS</button>
+                    <Link to='/blogs'><button className="btn btn-outline btn-sm mx-2  btn-accent">BLOGS</button></Link>
                 </div>
                 <div className="flex-none ml-5">
                     <div className="dropdown dropdown-end">

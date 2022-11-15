@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../../contexts/UserContext';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { getAuth, updateProfile } from 'firebase/auth';
@@ -9,6 +9,7 @@ const auth = getAuth(app);
 
 const SignUp = () => {
     const { createUser } = useContext(AuthContext);
+    const [error, setError] = useState('');
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -16,15 +17,16 @@ const SignUp = () => {
 
     const handleSignUp = (event) => {
         event.preventDefault();
+        setError('');
         const form = event.target;
         const name = form.name.value;
+        const photo = form.photo.value;
         const email = form.email.value;
         const password = form.password.value;
         const confirmPassowrd = form.confirm.value;
-        console.log(name, email, password);
 
         if (confirmPassowrd !== password) {
-            console.log('Password does not match!');
+            setError('Password does not match!');
             return;
         }
 
@@ -42,7 +44,8 @@ const SignUp = () => {
 
         const updateUserName = () => {
             updateProfile(auth.currentUser, {
-                displayName: name
+                displayName: name,
+                photoURL: photo
             })
                 .then(() => {
                     console.log('Username updated');
@@ -56,7 +59,7 @@ const SignUp = () => {
     return (
         <div className='signup-form'>
             <Header></Header>
-            <div className="hero min-h-screen bg-base-200">
+            <div className="hero mt-10 bg-base-200">
                 <div className="hero-content flex-col">
                     <div className="text-center">
                         <h1 className="text-5xl font-bold text-center">Sign Up Now!</h1>
@@ -70,6 +73,12 @@ const SignUp = () => {
                                         <span className="label-text">Name</span>
                                     </label>
                                     <input type="text" name='name' placeholder="Full name" className="input input-bordered" required />
+                                </div>
+                                <div className="form-control">
+                                    <label className="label">
+                                        <span className="label-text">Photo</span>
+                                    </label>
+                                    <input type="text" name='photo' placeholder="Photo URL" className="input input-bordered" required />
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
@@ -92,6 +101,9 @@ const SignUp = () => {
                                         <Link to='/login'><button className="label-text-alt link link-hover">Already have an account?</button></Link>
                                     </label>
                                 </div>
+                                {
+                                    <p className='text-red-400 text-center'>{error}</p>
+                                }
                                 <div className="form-control mt-6">
                                     <button className="btn btn-accent">SIGN UP</button>
                                 </div>

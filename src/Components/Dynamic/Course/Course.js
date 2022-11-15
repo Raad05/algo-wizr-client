@@ -6,7 +6,7 @@ const CourseInfo = ({ course }) => {
 
     return (
         <div className='course-info'>
-            <div className="card w-100 mt-10 border-2 p-2 shadow-lg bg-gray-100">
+            <div className="card w-100 mt-10 border-2 p-2 shadow-lg">
                 <figure><img className='rounded-md' src={thumbnail} alt="Course" /></figure>
                 <div className="card-body">
                     <h2 className="title font-bold text-2xl mb-3 text-gray-800">{name}</h2>

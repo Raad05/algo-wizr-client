@@ -67,7 +67,7 @@ const Login = () => {
     return (
         <div className='login-form'>
             <Header></Header>
-            <div className="hero min-h-screen bg-base-200">
+            <div className="hero mt-10 bg-base-200">
                 <div className="hero-content flex-col">
                     <div className="text-center">
                         <h1 className="text-5xl font-bold text-center">Login now!</h1>

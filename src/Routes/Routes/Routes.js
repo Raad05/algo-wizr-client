@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Login from "../../Components/Authentication/Login/Login";
 import SignUp from "../../Components/Authentication/SignUp/SignUp";
+import Blog from "../../Components/Blog/Blog";
 import Congratulations from "../../Components/Congratulations/Congratulations";
 import Category from "../../Components/Dynamic/Category/Category";
 import CourseDetails from "../../Components/Dynamic/CourseDetails/CourseDetails";
@@ -62,6 +63,10 @@ export const router = createBrowserRouter([
     {
         path: '/purchase-complete',
         element: <Congratulations></Congratulations>
+    },
+    {
+        path: '/blogs',
+        element: <Blog></Blog>
     },
     {
         path: '*',
