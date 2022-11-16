@@ -14,7 +14,7 @@ const RightSide = () => {
 
     return (
         <div className='right-side bg-info my-10 rounded-lg py-10 mx-5 text-center'>
-            <h2 className='mb-5 font-bold'>CATEGORIES</h2>
+            <h2 className='mb-5 font-bold text-white text-xl'>CATEGORIES</h2>
             {
                 categories.map(category => <div key={category.id} className='mb-5'>
                     <Link to={`/category/${category.id}`}><button className="btn glass btn-wide">{category.name}</button></Link>

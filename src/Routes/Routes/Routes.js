@@ -7,7 +7,6 @@ import Category from "../../Components/Dynamic/Category/Category";
 import CourseDetails from "../../Components/Dynamic/CourseDetails/CourseDetails";
 import ErrorPage from "../../Components/ErrorPage/ErrorPage";
 import GetPremium from "../../Components/GetPremium/GetPremium";
-import Home from "../../Components/Home/Home";
 import Main from "../../layouts/Main/Main";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
@@ -37,10 +36,6 @@ export const router = createBrowserRouter([
                 element: <Category></Category>
             },
         ]
-    },
-    {
-        path: '/homepage',
-        element: <Home></Home>
     },
     {
         path: '/login',

@@ -6,11 +6,13 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { getAuth, GithubAuthProvider, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import app from '../../../firebase/firebase.config';
 import Header from '../../Shared/Header/Header';
+import { useState } from 'react';
 
 const auth = getAuth(app);
 
 const Login = () => {
     const { login, setLoading } = useContext(AuthContext);
+    const [error, setError] = useState('');
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -20,11 +22,11 @@ const Login = () => {
     const githubProvider = new GithubAuthProvider();
 
     const handleLogin = (event) => {
+        setError('');
         event.preventDefault();
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email, password);
 
         login(email, password)
             .then(result => {
@@ -34,6 +36,7 @@ const Login = () => {
                 navigate(from, { replace: true });
             })
             .catch(error => {
+                setError('Email or password does not match!')
                 console.error(error);
             })
     }
@@ -102,8 +105,11 @@ const Login = () => {
                                         <Link to='/signup'><button className="label-text-alt link link-hover">Don't have an account?</button></Link>
                                     </label>
                                 </div>
+                                {
+                                    <p className='text-red-400 text-center'>{error}</p>
+                                }
                                 <div className="form-control mt-6">
-                                    <button className="btn btn-accent">Login</button>
+                                    <button className="btn btn-accent text-white font-bold">Login</button>
                                 </div>
                             </div>
                         </form>

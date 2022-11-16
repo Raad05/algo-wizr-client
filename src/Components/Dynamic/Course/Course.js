@@ -13,7 +13,7 @@ const CourseInfo = ({ course }) => {
                     <p><span className='font-bold text-gray-600'>Enrolled: </span>{enrolled}</p>
                     <p className='mb-3 text-lg font-bold'>${price}</p>
                     <div className="card-actions justify-center">
-                        <Link to={`/courses/${_id}`}><button className="btn btn-success btn-wide font-bold">ENROLL</button></Link>
+                        <Link to={`/courses/${_id}`}><button className="btn btn-success btn-wide text-white font-bold">ENROLL</button></Link>
                     </div>
                 </div>
             </div>
