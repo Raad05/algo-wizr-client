@@ -13,13 +13,13 @@ const CourseDetails = () => {
     return (
         <div className='course-details'>
             <Header></Header>
-            <div className="flex py-5 bg-base-200 justify-center items-center rounded-lg shadow-lg">
+            <div className="flex py-5 justify-center items-center rounded-lg shadow-lg sm:grid-cols-1">
                 <h2 className='mr-2 text-lg font-bold'>Click here to download</h2>
                 <Pdf targetRef={ref} filename="document.pdf">
                     {({ toPdf }) => <button className='btn btn-accent font-bold text-white' onClick={toPdf}>Course Details</button>}
                 </Pdf>
             </div>
-            <div className="hero px-10 bg-base-200">
+            <div className="hero min-h-screen px-10 bg-base-200">
                 <div className="hero-content flex-col lg:flex-row">
                     <img src={thumbnail} className="max-w-xl rounded-lg shadow-2xl mr-10" alt='course-img' />
                     <div ref={ref} className='p-10'>
