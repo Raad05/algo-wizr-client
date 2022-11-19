@@ -13,7 +13,7 @@ const RightSide = () => {
     }, [])
 
     return (
-        <div className='right-side bg-info my-10 rounded-lg py-10 mx-5 text-center'>
+        <div className='right-side bg-info rounded-lg text-center w-80 my-10 py-10 mx-5'>
             <h2 className='mb-5 font-bold text-white text-xl'>CATEGORIES</h2>
             {
                 categories.map(category => <div key={category.id} className='mb-5'>
