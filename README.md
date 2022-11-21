@@ -1,70 +1,38 @@
-# Getting Started with Create React App
+# AlgoWizR
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Features:
+- It will contain a navbar with the options: website logo, website name, Courses, FAQ, Blog, toggle theme (dark/ light), and User Profile Picture (or login). The user profile picture on the navbar is conditional. If the user is signed in, the navbar will show the profile pic. The user's name will be visible when the mouse is in the picture.
+- After clicking "Log in," it will redirect to a login page. 3 types of login systems will be implemented: Email & password login, Google, and GitHub login. The login page will have a toggle option to go to the register page. 
+- In your Email and Password registration form, there will be an input box for "Full name," where the user will type their full name. Other fields will be Email and Password.
+- Clicking "Courses" in the navbar will redirect to a page that shows the courses. 
+- The Courses page will be divided into two parts: a sidebar & content detail section. In the sidebar, the courses will be shown. Every option is clickable. 
+- By clicking an option, It will take you to the course detail page. All details must be relevant to the topic. 
+- There will be a button at the bottom of the content detail called "Get premium access." Clicking the button will take the user to the Checkout route. This route will be a private/protected route.
+- The private route redirects to the login page if the user is not logged in. After login, the user will be redirected to the checkout page.
+- The checkout page will be a dynamic route with route parameters having the id of the content that the user had clicked. On the checkout page, the name based on the id will be displayed.
+- If we reload the protected/private route, this page will not redirect the user to the login page. Instead, it will keep the logged-in user on the protected route.
+### Functionalities:
+- Display errors when the user's email address or password doesn't match.
+- Create an Error 404 page.
+ 
+ 
+### Tech Stack:
+- HTML
+- CSS
+- Javascript
+#### Frameworks and Libraries:
+- Bootstrap or react-bootstap / Tailwind CSS (With Daisy UI).
+- React.JS
+- Node.JS
+- Express.JS
+#### Authentication system:
+- Firebase Authentication
+ 
+ ### Live website Link:
+ - https://algo-wizr-client.web.app/
 
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+ ### Repositories
+#### Client Side:
+ - https://github.com/programming-hero-web-course1/b610-learning-platform-client-side-Raad05
+#### Server side:
+- https://github.com/programming-hero-web-course1/b610-lerning-platform-server-side-Raad05
