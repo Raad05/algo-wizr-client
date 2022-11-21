@@ -2,25 +2,14 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../../assets/Images/logo.png';
 import { AuthContext } from '../../../contexts/UserContext';
-import { GiHamburgerMenu } from 'react-icons/gi';
-import { GrClose } from 'react-icons/gr';
-import { useState } from 'react';
 
 const Header = () => {
     const { user, logOut } = useContext(AuthContext);
-    const [toggle, setToggle] = useState(false);
 
     return (
         <nav className='header px-40 py-5 relative'>
-            <button onClick={() => setToggle(!toggle)} className='absolute right-5 top-5 md:hidden'>
-                {
-                    toggle ?
-                        <GrClose size={30}></GrClose>
-                        :
-                        <GiHamburgerMenu size={30}></GiHamburgerMenu>
-                }
-            </button>
-            <div className={`md:flex md:justify-between absolute z-10 rounded bg-gray-100 md:static duration-200 ease-in-out ${toggle ? 'top-0' : 'top-[-200px]'}`}>
+
+            <div className='flex justify-between '>
                 <div className="logo">
                     <Link to='/home'><button className="btn btn-ghost normal-case text-4xl">
                         <img className='w-10 rounded' src={logo} alt="Logo" />AlgoWizR
