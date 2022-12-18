@@ -23,9 +23,6 @@ const Header = () => {
                         <div className='nav-link'>
                             <button className="btn btn-outline btn-sm mx-2 btn-accent">FAQ</button>
                         </div>
-                        <div className='nav-link'>
-                            <Link to='/blogs'><button className="btn btn-outline btn-sm mx-2  btn-accent">BLOGS</button></Link>
-                        </div>
                     </div>
                     <div className="flex-none ml-5">
                         <div className="dropdown dropdown-end">
