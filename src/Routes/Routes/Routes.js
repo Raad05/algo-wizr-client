@@ -8,6 +8,7 @@ import ErrorPage from "../../Components/ErrorPage/ErrorPage";
 import GetPremium from "../../Components/GetPremium/GetPremium";
 import Main from "../../layouts/Main/Main";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import Orders from "../../Components/Dynamic/Orders/Orders";
 
 export const router = createBrowserRouter([
     {
@@ -39,6 +40,10 @@ export const router = createBrowserRouter([
     {
         path: '/login',
         element: <Login></Login>
+    },
+    {
+        path: '/orders',
+        element: <Orders></Orders>
     },
     {
         path: '/signup',

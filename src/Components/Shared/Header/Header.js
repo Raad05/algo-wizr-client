@@ -4,7 +4,7 @@ import logo from '../../../assets/Images/logo.png';
 import { AuthContext } from '../../../contexts/UserContext';
 
 const Header = () => {
-    const { user, logOut } = useContext(AuthContext);
+    const { user, logOut, orders } = useContext(AuthContext);
 
     return (
         <nav className='header px-40 py-5 relative'>
@@ -25,6 +25,12 @@ const Header = () => {
                         </div>
                     </div>
                     <div className="flex-none ml-5">
+                        <Link to='/orders' className="btn btn-ghost btn-circle mx-5">
+                            <div className="indicator">
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+                                <span className="badge badge-sm indicator-item">{orders.length}</span>
+                            </div>
+                        </Link>
                         <div className="dropdown dropdown-end">
                             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                                 <div className="w-10 rounded-full">
@@ -42,15 +48,9 @@ const Header = () => {
                                     user?.uid &&
                                     <li className='font-bold'><button>{user.displayName}</button></li>
                                 }
-                                <div className="form-control">
-                                    <label className="label cursor-pointer">
-                                        <span className="label-text px-3">Dark Mode</span>
-                                        <input data-toggle-theme="dark,light" data-act-class="ACTIVECLASS" type="checkbox" className="toggle toggle-accent" />
-                                    </label>
-                                </div>
                                 {
                                     user?.uid ?
-                                        <li><button onClick={logOut}>Logout</button></li>
+                                        <li><Link to='/home'><button onClick={logOut}>Logout</button></Link></li>
                                         :
                                         <li><Link to='/login'><button>Login</button></Link></li>
                                 }

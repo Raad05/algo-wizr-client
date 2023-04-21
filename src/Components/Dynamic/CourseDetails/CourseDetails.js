@@ -4,7 +4,7 @@ import Header from '../../Shared/Header/Header';
 
 const CourseDetails = () => {
     const courseDetails = useLoaderData();
-    const { thumbnail, name, details, price, enrolled, _id, stats } = courseDetails
+    const { thumbnail, name, details, price, enrolled, _id, stats } = courseDetails;
 
     return (
         <div className='course-details'>

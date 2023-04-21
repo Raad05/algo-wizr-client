@@ -10,6 +10,13 @@ const auth = getAuth(app);
 const UserContext = ({ children }) => {
     const [user, setUser] = useState(null);
     const [isLoading, setLoading] = useState(true);
+    const [orders, setOrders] = useState([]);
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/orders?customer=${user?.displayName}`)
+            .then(res => res.json())
+            .then(data => setOrders(data))
+    }, [user?.displayName])
 
     const createUser = (email, password) => {
         setLoading(true);
@@ -35,7 +42,7 @@ const UserContext = ({ children }) => {
         return () => unsubscribe();
     }, [])
 
-    const authInfo = { user, createUser, login, logOut, isLoading, setLoading };
+    const authInfo = { user, createUser, login, logOut, isLoading, setLoading, orders };
 
     return (
         <div className='user-context'>
