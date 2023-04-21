@@ -11,7 +11,7 @@ const Orders = () => {
     const handleDelete = (order) => {
         const confirm = window.confirm('Are you sure you want to remove this course?');
         if (confirm) {
-            fetch(`http://localhost:5000/orders/${order}`, {
+            fetch(`https://algo-wizr-server-raad05.vercel.app/orders/${order}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())

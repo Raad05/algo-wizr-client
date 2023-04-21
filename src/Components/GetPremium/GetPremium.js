@@ -22,7 +22,7 @@ const GetPremium = () => {
 
         }
 
-        fetch('http://localhost:5000/orders', {
+        fetch('https://algo-wizr-server-raad05.vercel.app/orders', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

@@ -17,22 +17,22 @@ export const router = createBrowserRouter([
         children: [
             {
                 path: '/',
-                loader: () => fetch('http://localhost:5000/courses'),
+                loader: () => fetch('https://algo-wizr-server-raad05.vercel.app/courses'),
                 element: <Category></Category>
             },
             {
                 path: '/home',
-                loader: () => fetch('http://localhost:5000/courses'),
+                loader: () => fetch('https://algo-wizr-server-raad05.vercel.app/courses'),
                 element: <Category></Category>
             },
             {
                 path: '/courses',
-                loader: () => fetch('http://localhost:5000/courses'),
+                loader: () => fetch('https://algo-wizr-server-raad05.vercel.app/courses'),
                 element: <Category></Category>
             },
             {
                 path: '/category/:id',
-                loader: ({ params }) => fetch(`http://localhost:5000/category/${params.id}`),
+                loader: ({ params }) => fetch(`https://algo-wizr-server-raad05.vercel.app/category/${params.id}`),
                 element: <Category></Category>
             },
         ]
@@ -51,12 +51,12 @@ export const router = createBrowserRouter([
     },
     {
         path: '/courses/:id',
-        loader: ({ params }) => fetch(`http://localhost:5000/courses/${params.id}`),
+        loader: ({ params }) => fetch(`https://algo-wizr-server-raad05.vercel.app/courses/${params.id}`),
         element: <CourseDetails></CourseDetails>
     },
     {
         path: '/checkout/:id',
-        loader: ({ params }) => fetch(`http://localhost:5000/courses/${params.id}`),
+        loader: ({ params }) => fetch(`https://algo-wizr-server-raad05.vercel.app/courses/${params.id}`),
         element: <PrivateRoute><GetPremium></GetPremium></PrivateRoute>
     },
     {

@@ -13,7 +13,7 @@ const UserContext = ({ children }) => {
     const [orders, setOrders] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/orders?customer=${user?.displayName}`)
+        fetch(`https://algo-wizr-server-raad05.vercel.app/orders?customer=${user?.displayName}`)
             .then(res => res.json())
             .then(data => setOrders(data))
     }, [user?.displayName])
